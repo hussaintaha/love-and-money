@@ -1,0 +1,119 @@
+changes 
+
+1. Changes in account/register page. Added link for customer to redirect on custom signup page.
+2. Changes in account liquid file. create an api to get customer status to display the button on condition.
+
+
+
+
+20/3/2024
+
+Today, I updated a backend functionality for Stripe payment, which involves updating the database and storing the status of user subscriptions. I also applied webhooks so that when a user's payment process fails, the subscription is created, but the status of the subscription is marked as "incomplete.
+Create a functionality to store all status about to subscription.
+Would you like to store in the database only those users whose subscription status is incomplete or whose payments are in process? Or do you want to store only those users whose payments are clear and whose subscription status is active?
+I am changing some approach. Instead of sending the payment URL, we will send the URL of the payment section page in the customer's Gmail, which we create on our website. In this page, there will be a button labeled "Pay Now".
+This modification is necessary because if the payment fails for any reason, the payment URL will expire after 24 hours. Consequently, we will have to create another URL and send it back to the user's Gmail.
+I am getting the same error while working on the Dropbox sign-in process.
+ error: _ErrorResponseError {
+      errorMsg: 'You have exceeded the 10 email limit for your free trial. Please try again in 1426 minutes or consider upgrading to a paid plan.',
+      errorName: 'forbidden',
+      errorPath: undefined
+    }
+
+
+20/3/2024
+
+Today, I implemented a signature in Stripe for verification, ensuring secure integration and confirming that all webhook requests are indeed made by Stripe.
+Today, I worked on implementing Dropbox's signature verification and creating an embedded Dropbox request to display within our UI using an iframe.
+worked on creating a custom template in Dropbox for our customers. However, I encountered an error stating, "The created template will be locked. Upgrade your account to use more templates.
+Currently I am working on setting up Dropbox events or webhooks to notify us whenever a customer signs and submits a document.
+Please provide me with the Dashboard design so I can start building it according to your preferences. Additionally, please let me know what basic details you need from the client during signup, or if you require any additional information.
+I've attached a video of Dropbox sign functionality and Stripe payment integration. Once the payment is completed, the user will be redirected to our Dashboard. For testing purposes, I'll pass static data. Once our Dashboard design is ready, we'll make it dynamic. Let's proceed with the Dashboard design and integration testing.
+
+
+22/3/24
+
+Today, I worked on setting up the backend functionality for Dropbox events. This means that whenever a customer signs the contract and submits it, the webhook will trigger and notify us.
+Please provide me with the dashboard UI so I can begin work on it. 
+If you require additional information from the user during sign-in, please let me know.
+
+
+28/3/24
+Today, I created a signup form using Material-UI with React.
+I checked the component you provided and used it in my React app. However, the component is deprecated, and to address this, we'll need to make changes in the node module files. Using deprecated components can lead to issues in the future. If you prefer, I can create a dashboard using Material-UI components instead.
+Please provide me with a dashboard design to make it easier for me to create the Dashboard. Additionally, could you specify the basic information you would like to be displayed on the dashboard?
+Please provide a PDF or a DOC for contract management that users can read and sign for testing purposes 
+
+
+29/3/24
+Today, I added validation to the signup form. If a user tries to use the same email to create a new account, we display an alert saying 'Email already exists'.
+Create a functionality if a normal user after login they want to become partner and sign a contract with us then we show a page for verify their email then we will compare this email in our database if the enail is already present then we will get the data from database and if email is not present then we will redirect to our signup page.
+Create a functionality of if the normal user login in show the interest in becoming a partner to sign a contract with us, then we show a page to verify the email adrress.
+Then we compare this email in our database. If the email is already present the we retriew the customer data from database. and if the user is not present then we will redirec the user to our signup page and get the neccessary data. 
+
+
+01/04/2024
+Today, I Added a webhooks in dropbox sign and integrated in shopify app.
+Whenever a customer requests a signature, the "signature_request_sent" webhook will trigger. If the customer signs the contract and submits it, the "signature_request_signed" webhook will trigger, providing us with the customer data, including the "signature_id" and signature status.
+After the customer successfully signs the contract, we save the status in our database.
+I added a "Signup" and "verifyemail" form in Shopify and made necessary changes for routing.
+
+02/04/2024
+Today,
+I made changes to the API for signup and email verification.
+Resolve an error encountered during the addition of a page to the Shopify storefront, create validation for the signup page, and add a component to display inline errors.
+Please let me know if you want any changes on the signup page.
+Create a functionality where, if a normal customer is interested to make a contract and want to become partner with us then we provide an option to customer If the customer clicks on this option, they will be redirected to the verify email page..
+In varifyemail page we will take user email and check whether the customer is already exist in shopify or not. If the customer exists, we will retrieve their data using the email and save it to our database. If the customer is not found in Shopify, we will redirect them to the signup page to collect necessary data and save it to our database.
+Give me an update dashboard design.
+
+03/04/2024
+Today, 
+I have created a simple dashboard design in React using Material-UI and integrated it into a Shopify storefront.
+Create buttons for 'Dropbox Sign' and 'Payment'.
+When a customer clicks on the 'Dropbox Sign' button, the Dropbox template will display on the Shopify page within an iframe, and the customer's signature status will be saved in our database.
+When a customer clicks on the payment button, they will be redirected to the Stripe payment page. However, if the customer's signature status is pending or awaiting, the payment page will not be displayed on Shopify. Instead, an alert will be shown stating, 'Please sign the contract first'.
+
+
+04/04/2024
+Today, 
+I updated the Dropbox Sign API to dynamically provide the customer's email and name.
+Additionally, I updated the dashboard UI to display the customer's data, such as their name. 
+I applied conditions to the Dropbox and Stripe functionalities: if the customer's signature is in a pending state, the payment option is disabled; if the customer's signature is "signed," then the payment option is enabled.
+I have attached videos of how our process. If you have any suggested changes, please let me know.
+
+Questions:
+1. What benefits will you provide after the customer takes a subscription?
+2. What data would you like to display on the dashboard to the customer?
+3. Do you want any changes in the signup form?
+
+
+05/04/2024
+Today,
+I have made changes to the Shopify register.liquid file. I added a button that says 'If you want to become a partner, click here.' If a customer clicks on the button, they will be redirected to our custom signup page.
+I made changes to the Shopify account file. I added a button labeled 'View Dashboard'. When a customer clicks on the button, they will be redirected to our dashboard. Additionally, I created functionality to display the button only if the customer signs up using our custom signup form. Regular customers who log in and are redirected to the account page will not see the button.
+Shopify redirects customers to the account page by default after login. That's why we added a button on the account page.
+If you do not want any buttons on the account page and prefer customers to be automatically redirected from the account page to the dashboard without any button clicks, please let me know.
+
+Provide me with the template that customers can read and sign for the contract.
+
+
+06/04/2024
+Today,
+I have created a theme app extension in Shopify to add a block to our storefront.
+If a regular customer logs in, we display the type of promotion for our subscription. We show an icon button, and if they click on it, the promotion message will be displayed to the user.
+Woring on theme app extension.
+
+07/04/2024
+Today,
+I created a block in the Shopify storefront using the theme app extension and added it to the cart page. Whenever the customer visits the cart page, the promotion message will be displayed.
+In the promotion message, we provided a button. If a customer clicks on the button, they will be taken to the 'verifyemail' page.
+On the 'verify email' page, we will provide an input field for customers to enter their email address. After this, we will check whether the user has already purchased a subscription with this email or not.
+If not, then we will check whether the customer is created in Shopify or not. If the customer is present, we will retrieve the customer's data through the API and save it in the database.
+If the customer is not present in Shopify, then we will redirect them to our customer 'signup' page.
+
+In the previous report, I provided a video of how our flow works. If you have any further questions or if you would like any changes, please let me know.
+
+Questions:
+1. What benefits will you provide after the customer takes a subscription?
+2. What data would you like to display on the dashboard to the customer?

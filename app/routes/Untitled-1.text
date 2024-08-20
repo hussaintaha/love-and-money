@@ -1,0 +1,87 @@
+// router.post('/myIndiaNumberWebhook', express.raw({ type: '*/*' }), async (req, res) => {
+//   try {
+//     const signature = req.headers['stripe-signature']
+//     const event = stripe.webhooks.constructEvent(
+//       req.body,
+//       signature,
+//       process.env.STRIPE_WEBHOOK_SECRET_KEY_SUBSCRIPTION
+//     )
+//     if (event.type == 'customer.subscription.created') {
+//       // NEW SUBSCRIPTION CREATED UPDATE THE USER IN DATABASE
+//       const userId = event.data.object?.metadata?.myInidaNumberuserid
+//       if (userId) {
+//         const updatedUser = await User.findByIdAndUpdate(userId, { myIndiaNumberStatus: 'Active' }, { new: true })
+//         sendMailToAdminMyIndiaNumber(updatedUser)
+//         // console.log('updatedUser', updatedUser)
+//       } else {
+//         console.log('User Subscribed MyIndia Number But USERID not found and Not updated in database please verify from the Stripe Dashboard')
+//         ErrLog.create({
+//           message: 'User Subscribed MyIndia Number But USERID not found and Not updated in database please verify from the Stripe Dashboard',
+//           name: 'My INDIA NUMBER ERROR',
+//           subsystem: 'user',
+//           endpoint: 'WEBHOOK-MYINDIANUMBER-CREATE',
+//           stack: 'err.stack',
+//           // createdBy: 'req.user?._id',
+//         }).catch(err2 => {
+//           console.log(err2)
+//         })
+//       }
+
+//     } else if ((event.type == 'customer.subscription.updated')
+//       && (event.data.object.status !== 'active') && (event.data.object.status !== 'incomplete') && (event.data.object.status !== 'past_due')) {
+//       const userId = event.data.object?.metadata?.myInidaNumberuserid
+//       if (userId) {
+//         const updatedUser = await User.findByIdAndUpdate(userId, { myIndiaNumberStatus: event.data.object.status, myIndiaNumber: '' }, { new: true })
+//       } else {
+//         console.log('User Subscription status updated MyIndia Number But USERID not found and Not updated in database please verify from the Stripe Dashboard')
+//         ErrLog.create({
+//           message: 'User Subscription status updated MyIndia Number But USERID not found and Not updated in database please verify from the Stripe Dashboard',
+//           name: 'My INDIA NUMBER ERROR',
+//           subsystem: 'user',
+//           endpoint: 'WEBHOOK-MYINDIANUMBER-UPDATE',
+//           stack: 'err.stack',
+//           // createdBy: 'req.user?._id',
+//         }).catch(err2 => {
+//           console.log(err2)
+//         })
+//       }
+
+//     } else if (event.type == 'customer.subscription.deleted') {
+//       const userId = event.data.object?.metadata?.myInidaNumberuserid
+//       if (userId) {
+//         const updatedUser = await User.findByIdAndUpdate(userId, { myIndiaNumberStatus: 'Cancelled', myIndiaNumber: '' }, { new: true })
+//       } else {
+//         console.log('User Cancelled MyIndia Number But USERID not found and Not updated in database please verify from the Stripe Dashboard')
+//         ErrLog.create({
+//           message: 'User Cancelled MyIndia Number But USERID not found and Not updated in database please verify from the Stripe Dashboard',
+//           name: 'My INDIA NUMBER ERROR',
+//           subsystem: 'user',
+//           endpoint: 'WEBHOOK-MYINDIANUMBER-CANCEL',
+//           stack: 'err.stack',
+//           // createdBy: 'req.user?._id',
+//         }).catch(err2 => {
+//           console.log(err2)
+//         })
+//       }
+//     }
+//     res.sendStatus(200)
+//   } catch (err) {
+//     console.log('err', err);
+//     ErrLog.create({
+//       message: err.message,
+//       name: err.name,
+//       subsystem: 'user',
+//       endpoint: 'post-myIndiaNumberWebhook',
+//       stack: err.stack,
+//       createdBy: req.user?._id,
+//     }).catch(err2 => {
+//       console.log(err2)
+//     })
+//     res.json({ status: 'failed', message: 'Server error' })
+//   }
+
+// })
+
+
+
+  
